@@ -1,0 +1,3 @@
+[submodule "neura"]
+	path = neura
+	url = https://github.com/mpopdam/NeuraNet.git
