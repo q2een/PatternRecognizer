@@ -63,17 +63,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\neura\Source\NeuraNet\NeuraNet.csproj">
-      <Project>{ce10fff1-7174-4042-90e6-576123fc456d}</Project>
-      <Name>NeuraNet</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Neura\Source\NeuraNet\NeuraNet.csproj">
+      <Project>{ce10fff1-7174-4042-90e6-576123fc456d}</Project>
+      <Name>NeuraNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

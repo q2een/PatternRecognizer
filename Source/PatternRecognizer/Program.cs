@@ -1,8 +1,7 @@
-﻿using PatternRecognizer.BL;
+﻿using PatternRecognizer.BL.Network;
+using PatternRecognizer.BL.NeuraNet;
+using PatternRecognizer.BL.ImagePattern;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PatternRecognizer

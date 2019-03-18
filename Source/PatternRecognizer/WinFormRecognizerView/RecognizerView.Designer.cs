@@ -49,6 +49,7 @@
             var size = new System.Drawing.Size(System.Math.Max(pbPixelImage.Width, gbTrainProcess.MinimumSize.Width), pbPixelImage.Height + gbTrainProcess.Height);
             leftSide.MinimumSize = size;
             leftSide.Size = size;
+            gbGrapicsResult.Visible = IsGraphicsResultExists;
         }
          
         #region Windows Form Designer generated code
@@ -91,11 +92,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditLayer = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbTextResult = new System.Windows.Forms.GroupBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.dgvProbability = new System.Windows.Forms.DataGridView();
             this.panelRecognize = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbGrapicsResult = new System.Windows.Forms.GroupBox();
             this.pbResult = new System.Windows.Forms.PictureBox();
             this.btnRecognize = new System.Windows.Forms.Button();
             this.gbTrainProcess = new System.Windows.Forms.GroupBox();
@@ -117,10 +118,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLearningRate)).BeginInit();
             this.gbTrainSet.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbTextResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProbability)).BeginInit();
             this.panelRecognize.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbGrapicsResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             this.gbTrainProcess.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -488,19 +489,19 @@
             this.btnEditLayer.UseVisualStyleBackColor = true;
             this.btnEditLayer.Click += new System.EventHandler(this.btnEditLayer_Click);
             // 
-            // groupBox2
+            // gbTextResult
             // 
-            this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.lblResult);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(2, 38);
-            this.groupBox2.MinimumSize = new System.Drawing.Size(136, 136);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(136, 136);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Текст";
+            this.gbTextResult.AutoSize = true;
+            this.gbTextResult.Controls.Add(this.lblResult);
+            this.gbTextResult.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbTextResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbTextResult.Location = new System.Drawing.Point(2, 38);
+            this.gbTextResult.MinimumSize = new System.Drawing.Size(136, 136);
+            this.gbTextResult.Name = "gbTextResult";
+            this.gbTextResult.Size = new System.Drawing.Size(136, 136);
+            this.gbTextResult.TabIndex = 1;
+            this.gbTextResult.TabStop = false;
+            this.gbTextResult.Text = "Текст";
             // 
             // lblResult
             // 
@@ -551,8 +552,8 @@
             // 
             // panelRecognize
             // 
-            this.panelRecognize.Controls.Add(this.groupBox3);
-            this.panelRecognize.Controls.Add(this.groupBox2);
+            this.panelRecognize.Controls.Add(this.gbGrapicsResult);
+            this.panelRecognize.Controls.Add(this.gbTextResult);
             this.panelRecognize.Controls.Add(this.btnRecognize);
             this.panelRecognize.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelRecognize.Location = new System.Drawing.Point(0, 165);
@@ -562,21 +563,21 @@
             this.panelRecognize.Size = new System.Drawing.Size(320, 175);
             this.panelRecognize.TabIndex = 0;
             // 
-            // groupBox3
+            // gbGrapicsResult
             // 
-            this.groupBox3.AutoSize = true;
-            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox3.Controls.Add(this.pbResult);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(182, 38);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(136, 136);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(1, 1, 1, 2);
-            this.groupBox3.Size = new System.Drawing.Size(136, 136);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Графика";
+            this.gbGrapicsResult.AutoSize = true;
+            this.gbGrapicsResult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbGrapicsResult.Controls.Add(this.pbResult);
+            this.gbGrapicsResult.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbGrapicsResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbGrapicsResult.Location = new System.Drawing.Point(182, 38);
+            this.gbGrapicsResult.MinimumSize = new System.Drawing.Size(136, 136);
+            this.gbGrapicsResult.Name = "gbGrapicsResult";
+            this.gbGrapicsResult.Padding = new System.Windows.Forms.Padding(1, 1, 1, 2);
+            this.gbGrapicsResult.Size = new System.Drawing.Size(136, 136);
+            this.gbGrapicsResult.TabIndex = 2;
+            this.gbGrapicsResult.TabStop = false;
+            this.gbGrapicsResult.Text = "Графика";
             // 
             // pbResult
             // 
@@ -718,11 +719,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLearningRate)).EndInit();
             this.gbTrainSet.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.gbTextResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProbability)).EndInit();
             this.panelRecognize.ResumeLayout(false);
             this.panelRecognize.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gbGrapicsResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
             this.gbTrainProcess.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -763,11 +764,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbTextResult;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dgvProbability;
         private System.Windows.Forms.Panel panelRecognize;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbGrapicsResult;
         private System.Windows.Forms.PictureBox pbResult;
         private System.Windows.Forms.Button btnRecognize;
         private System.Windows.Forms.GroupBox gbTrainProcess;

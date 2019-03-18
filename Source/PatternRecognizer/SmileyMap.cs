@@ -22,7 +22,7 @@ namespace PatternRecognizer
 
         public Image GetPatternObject(int index)
         {
-            switch (index)
+           /* switch (index)
             {
                 case 0: return Properties.Resources._1;
                 case 1: return Properties.Resources._2;
@@ -35,7 +35,7 @@ namespace PatternRecognizer
                 case 8: return Properties.Resources._9;
                 case 9: return Properties.Resources._10;
             }
-
+                        */
             return null;
         }
 

@@ -8,11 +8,13 @@ using PatternRecognizer.BL.Network;
 
 namespace PatternRecognizer
 {
-    public partial class RecognizerView : Form, IRecognizerView
+    public abstract partial class RecognizerView : Form, IRecognizerView
     {           
         #region Свойства для графических элементов
 
         protected int DrawerMultiplier { get; set; } = 50;
+
+        protected bool IsGraphicsResultExists { get; set; } = true;
 
         protected string OpenTrainSetFilter { get; set; } = "PNG image|*.png";
 
@@ -89,6 +91,8 @@ namespace PatternRecognizer
             Activations = activations ?? throw new ArgumentNullException("activations");
 
             Initialize(patternImageHeight, patternImageWidth);
+
+            // Добавление первого и последнего слоев нейронной сети. Пользователю разрешено изменять только функции активации. 
             lstLayers.Items.Add(new LayerConfigurationView(patternImageWidth* patternImageHeight, Activations.First()));
             lstLayers.Items.Add(new LayerConfigurationView(patternCount, Activations.First()));
         }
@@ -114,8 +118,10 @@ namespace PatternRecognizer
 
             dgvProbability.DataSource = results;
 
-            pbResult.Image = results.First().Image;
             lblResult.Text = results.First().PatternText;
+
+            if(IsGraphicsResultExists)
+                pbResult.Image = results.FirstOrDefault().Image;
         }
 
         #endregion
