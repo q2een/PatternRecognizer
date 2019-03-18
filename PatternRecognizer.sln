@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmileyRecognition", "SmileyRecognition\SmileyRecognition.csproj", "{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognizer", "SmileyRecognition\PatternRecognizer.csproj", "{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmileyRecognition.BL", "SmileyRecognition.BL\SmileyRecognition.BL.csproj", "{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognizer.BL", "SmileyRecognition.BL\PatternRecognizer.BL.csproj", "{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuraNet", "neura\Source\NeuraNet\NeuraNet.csproj", "{CE10FFF1-7174-4042-90E6-576123FC456D}"
 EndProject
