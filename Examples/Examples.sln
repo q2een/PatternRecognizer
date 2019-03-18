@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmileyRecognizer", "SmileyRecognizer\SmileyRecognizer.csproj", "{7A5029C8-45EA-4BB5-8185-F86160A3C36C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122} = {BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}
+		{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE} = {A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognizer", "..\Source\PatternRecognizer\PatternRecognizer.csproj", "{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRecognizer.BL", "..\Source\PatternRecognizer.BL\PatternRecognizer.BL.csproj", "{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuraNet", "..\Source\Neura\Source\NeuraNet\NeuraNet.csproj", "{CE10FFF1-7174-4042-90E6-576123FC456D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRecognizer", "DigitRecognizer\DigitRecognizer.csproj", "{6415A652-1B4D-442B-ABEF-9FD080D9107F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A5029C8-45EA-4BB5-8185-F86160A3C36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A5029C8-45EA-4BB5-8185-F86160A3C36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A5029C8-45EA-4BB5-8185-F86160A3C36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A5029C8-45EA-4BB5-8185-F86160A3C36C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DF4AB2-3BAE-4C02-8A24-B77D1D607BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFC4F49-E1ED-4BA5-82BB-35DBCB9FA122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE10FFF1-7174-4042-90E6-576123FC456D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE10FFF1-7174-4042-90E6-576123FC456D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE10FFF1-7174-4042-90E6-576123FC456D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE10FFF1-7174-4042-90E6-576123FC456D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6415A652-1B4D-442B-ABEF-9FD080D9107F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6415A652-1B4D-442B-ABEF-9FD080D9107F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6415A652-1B4D-442B-ABEF-9FD080D9107F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6415A652-1B4D-442B-ABEF-9FD080D9107F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C87B3FA3-F7F4-4CE2-BE00-6D83F9011074}
+	EndGlobalSection
+EndGlobal

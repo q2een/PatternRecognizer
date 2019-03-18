@@ -29,6 +29,11 @@ namespace PatternRecognizer.BL.Network
         int LastLayerNeuronCount { get; }
 
         /// <summary>
+        /// Возвращает флаг, указывающий на то, что нейронная сеть не создана или не загружена.
+        /// </summary>
+        bool IsNull { get; }
+
+        /// <summary>
         /// Происходит при завершении эпохи обучения нейронной сети. 
         /// </summary>
         event EventHandler<EphochTrainedEventArgs> EpochTrained;

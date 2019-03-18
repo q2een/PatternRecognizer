@@ -51,6 +51,8 @@ namespace PatternRecognizer.BL.NeuraNet
 
         public int LastLayerNeuronCount => configs.LastOrDefault()?.NeuronCount ?? -1;
 
+        public bool IsNull => Network == null;
+
         public event EventHandler<EphochTrainedEventArgs> EpochTrained = delegate { };
         public event EventHandler<EphochTrainedEventArgs> BeforeTrainingStart = delegate { };
         public event EventHandler<EphochTrainedEventArgs> OnTrainingEnd = delegate { };

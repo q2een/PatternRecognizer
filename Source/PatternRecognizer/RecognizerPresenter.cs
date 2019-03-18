@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using PatternRecognizer.BL.Network;
 using PatternRecognizer.BL.ImagePattern;
 
-
 namespace PatternRecognizer
 {
     public class RecognizerPresenter
@@ -107,9 +106,19 @@ namespace PatternRecognizer
 
         private void View_RecognizeClick(object sender, EventArgs e)
         {
-            var output = network.GetNetworkOutput(view.CurrentImage);
+            try
+            {
+                if (network.IsNull)
+                    throw new Exception("Перед распознованием образа необходимо загрузить или обучить нейронную сеть");
 
-            view.SetRecognitionResult(GetNetworkOutput(output));
+                var output = network.GetNetworkOutput(view.CurrentImage);
+
+                view.SetRecognitionResult(GetNetworkOutput(output));
+            }
+            catch (Exception ex)
+            {
+                messageService.ShowError(ex.Message); 
+            }
         }
 
         private void View_SaveNetworkClick(object sender, EventArgs e)

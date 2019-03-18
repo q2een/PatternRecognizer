@@ -8,19 +8,19 @@ using PatternRecognizer.BL.Network;
 
 namespace PatternRecognizer
 {
-    public abstract partial class RecognizerView : Form, IRecognizerView
+    public partial class RecognizerView : Form, IRecognizerView
     {           
         #region Свойства для графических элементов
 
-        protected int DrawerMultiplier { get; set; } = 50;
+        protected virtual int DrawerMultiplier { get; set; } = 50;
 
-        protected bool IsGraphicsResultExists { get; set; } = true;
+        protected virtual bool IsGraphicsResultExists { get; set; } = true;
 
-        protected string OpenTrainSetFilter { get; set; } = "PNG image|*.png";
+        protected virtual string OpenTrainSetFilter { get; set; } = "PNG image|*.png";
 
-        protected string SaveNetworkFilter { get; set; } = "JSON File|*.json";
+        protected virtual string SaveNetworkFilter { get; set; } = "JSON File|*.json";
 
-        protected string LoadNetworkFilter { get; set; } = "JSON File|*.json";
+        protected virtual string LoadNetworkFilter { get; set; } = "JSON File|*.json";
 
         #endregion
 
@@ -261,6 +261,7 @@ namespace PatternRecognizer
 
             pbPixelImage.Image = Image.FromFile(openFileDialog.FileName);
             TrainSetImagePath = openFileDialog.FileName;
+            linkFile.Text = System.IO.Path.GetFileName(TrainSetImagePath);
 
             OpenTrainSetClick(this, EventArgs.Empty);
         }
