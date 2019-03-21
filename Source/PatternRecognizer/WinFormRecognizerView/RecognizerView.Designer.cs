@@ -47,6 +47,12 @@
             InitPixelDrawer(columnCount, rowCount);
 
             var size = new System.Drawing.Size(System.Math.Max(pbPixelImage.Width, gbTrainProcess.MinimumSize.Width), pbPixelImage.Height + gbTrainProcess.Height);
+
+            drawerContainer.Size = new System.Drawing.Size(size.Width, pbPixelImage.Height);
+
+            pbPixelImage.Location = new System.Drawing.Point((leftSide.Width - pbPixelImage.Width) / 2, pbPixelImage.Location.Y);
+            pbPixelImage.Anchor = System.Windows.Forms.AnchorStyles.None;                        
+
             leftSide.MinimumSize = size;
             leftSide.Size = size;
             gbGrapicsResult.Visible = IsGraphicsResultExists;
@@ -92,23 +98,24 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditLayer = new System.Windows.Forms.Button();
-            this.gbTextResult = new System.Windows.Forms.GroupBox();
-            this.lblResult = new System.Windows.Forms.Label();
             this.dgvProbability = new System.Windows.Forms.DataGridView();
-            this.panelRecognize = new System.Windows.Forms.Panel();
-            this.gbGrapicsResult = new System.Windows.Forms.GroupBox();
-            this.pbResult = new System.Windows.Forms.PictureBox();
-            this.btnRecognize = new System.Windows.Forms.Button();
-            this.gbTrainProcess = new System.Windows.Forms.GroupBox();
-            this.progressTrain = new System.Windows.Forms.ProgressBar();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCost = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblEpoch = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.leftSide = new System.Windows.Forms.Panel();
+            this.drawerContainer = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblEpoch = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblCost = new System.Windows.Forms.Label();
+            this.progressTrain = new System.Windows.Forms.ProgressBar();
+            this.gbTrainProcess = new System.Windows.Forms.GroupBox();
+            this.btnRecognize = new System.Windows.Forms.Button();
+            this.gbTextResult = new System.Windows.Forms.GroupBox();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.gbGrapicsResult = new System.Windows.Forms.GroupBox();
+            this.pbResult = new System.Windows.Forms.PictureBox();
+            this.panelRecognize = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbPixelImage)).BeginInit();
             this.menu.SuspendLayout();
             this.panelTrain.SuspendLayout();
@@ -118,23 +125,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLearningRate)).BeginInit();
             this.gbTrainSet.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.gbTextResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProbability)).BeginInit();
-            this.panelRecognize.SuspendLayout();
+            this.leftSide.SuspendLayout();
+            this.drawerContainer.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.gbTrainProcess.SuspendLayout();
+            this.gbTextResult.SuspendLayout();
             this.gbGrapicsResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
-            this.gbTrainProcess.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.leftSide.SuspendLayout();
+            this.panelRecognize.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbPixelImage
             // 
             this.pbPixelImage.BackColor = System.Drawing.Color.White;
-            this.pbPixelImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbPixelImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbPixelImage.Location = new System.Drawing.Point(0, 0);
             this.pbPixelImage.Name = "pbPixelImage";
-            this.pbPixelImage.Size = new System.Drawing.Size(320, 165);
+            this.pbPixelImage.Size = new System.Drawing.Size(320, 174);
             this.pbPixelImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPixelImage.TabIndex = 1;
             this.pbPixelImage.TabStop = false;
@@ -489,30 +497,6 @@
             this.btnEditLayer.UseVisualStyleBackColor = true;
             this.btnEditLayer.Click += new System.EventHandler(this.btnEditLayer_Click);
             // 
-            // gbTextResult
-            // 
-            this.gbTextResult.AutoSize = true;
-            this.gbTextResult.Controls.Add(this.lblResult);
-            this.gbTextResult.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbTextResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbTextResult.Location = new System.Drawing.Point(2, 38);
-            this.gbTextResult.MinimumSize = new System.Drawing.Size(136, 136);
-            this.gbTextResult.Name = "gbTextResult";
-            this.gbTextResult.Size = new System.Drawing.Size(136, 136);
-            this.gbTextResult.TabIndex = 1;
-            this.gbTextResult.TabStop = false;
-            this.gbTextResult.Text = "Текст";
-            // 
-            // lblResult
-            // 
-            this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblResult.Location = new System.Drawing.Point(3, 18);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(130, 115);
-            this.lblResult.TabIndex = 0;
-            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dgvProbability
             // 
             this.dgvProbability.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -550,80 +534,26 @@
             this.dgvProbability.Size = new System.Drawing.Size(300, 589);
             this.dgvProbability.TabIndex = 1;
             // 
-            // panelRecognize
+            // leftSide
             // 
-            this.panelRecognize.Controls.Add(this.gbGrapicsResult);
-            this.panelRecognize.Controls.Add(this.gbTextResult);
-            this.panelRecognize.Controls.Add(this.btnRecognize);
-            this.panelRecognize.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelRecognize.Location = new System.Drawing.Point(0, 165);
-            this.panelRecognize.MinimumSize = new System.Drawing.Size(274, 175);
-            this.panelRecognize.Name = "panelRecognize";
-            this.panelRecognize.Padding = new System.Windows.Forms.Padding(2);
-            this.panelRecognize.Size = new System.Drawing.Size(320, 175);
-            this.panelRecognize.TabIndex = 0;
+            this.leftSide.Controls.Add(this.gbTrainProcess);
+            this.leftSide.Controls.Add(this.panelRecognize);
+            this.leftSide.Controls.Add(this.drawerContainer);
+            this.leftSide.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftSide.Location = new System.Drawing.Point(0, 24);
+            this.leftSide.Name = "leftSide";
+            this.leftSide.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.leftSide.Size = new System.Drawing.Size(320, 589);
+            this.leftSide.TabIndex = 0;
             // 
-            // gbGrapicsResult
+            // drawerContainer
             // 
-            this.gbGrapicsResult.AutoSize = true;
-            this.gbGrapicsResult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbGrapicsResult.Controls.Add(this.pbResult);
-            this.gbGrapicsResult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbGrapicsResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbGrapicsResult.Location = new System.Drawing.Point(182, 38);
-            this.gbGrapicsResult.MinimumSize = new System.Drawing.Size(136, 136);
-            this.gbGrapicsResult.Name = "gbGrapicsResult";
-            this.gbGrapicsResult.Padding = new System.Windows.Forms.Padding(1, 1, 1, 2);
-            this.gbGrapicsResult.Size = new System.Drawing.Size(136, 136);
-            this.gbGrapicsResult.TabIndex = 2;
-            this.gbGrapicsResult.TabStop = false;
-            this.gbGrapicsResult.Text = "Графика";
-            // 
-            // pbResult
-            // 
-            this.pbResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbResult.Location = new System.Drawing.Point(1, 16);
-            this.pbResult.Margin = new System.Windows.Forms.Padding(0);
-            this.pbResult.Name = "pbResult";
-            this.pbResult.Size = new System.Drawing.Size(134, 118);
-            this.pbResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbResult.TabIndex = 0;
-            this.pbResult.TabStop = false;
-            // 
-            // btnRecognize
-            // 
-            this.btnRecognize.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRecognize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRecognize.Location = new System.Drawing.Point(2, 2);
-            this.btnRecognize.Name = "btnRecognize";
-            this.btnRecognize.Size = new System.Drawing.Size(316, 36);
-            this.btnRecognize.TabIndex = 0;
-            this.btnRecognize.Text = "Распознать";
-            this.btnRecognize.UseVisualStyleBackColor = true;
-            this.btnRecognize.Click += new System.EventHandler(this.btnRecognize_Click);
-            // 
-            // gbTrainProcess
-            // 
-            this.gbTrainProcess.Controls.Add(this.progressTrain);
-            this.gbTrainProcess.Controls.Add(this.tableLayoutPanel1);
-            this.gbTrainProcess.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbTrainProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbTrainProcess.Location = new System.Drawing.Point(0, 340);
-            this.gbTrainProcess.MinimumSize = new System.Drawing.Size(272, 175);
-            this.gbTrainProcess.Name = "gbTrainProcess";
-            this.gbTrainProcess.Padding = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.gbTrainProcess.Size = new System.Drawing.Size(320, 175);
-            this.gbTrainProcess.TabIndex = 1;
-            this.gbTrainProcess.TabStop = false;
-            this.gbTrainProcess.Text = "Процесс обучения";
-            // 
-            // progressTrain
-            // 
-            this.progressTrain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressTrain.Location = new System.Drawing.Point(3, 138);
-            this.progressTrain.Name = "progressTrain";
-            this.progressTrain.Size = new System.Drawing.Size(314, 34);
-            this.progressTrain.TabIndex = 1;
+            this.drawerContainer.Controls.Add(this.pbPixelImage);
+            this.drawerContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.drawerContainer.Location = new System.Drawing.Point(0, 0);
+            this.drawerContainer.Name = "drawerContainer";
+            this.drawerContainer.Size = new System.Drawing.Size(320, 174);
+            this.drawerContainer.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -643,14 +573,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(314, 67);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblCost
+            // label5
             // 
-            this.lblCost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCost.Location = new System.Drawing.Point(160, 33);
-            this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(151, 34);
-            this.lblCost.TabIndex = 3;
-            this.lblCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 33);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Эпоха";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEpoch
+            // 
+            this.lblEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEpoch.Location = new System.Drawing.Point(160, 0);
+            this.lblEpoch.Name = "lblEpoch";
+            this.lblEpoch.Size = new System.Drawing.Size(151, 33);
+            this.lblEpoch.TabIndex = 1;
+            this.lblEpoch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -662,36 +602,112 @@
             this.label7.Text = "Ошибка";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEpoch
+            // lblCost
             // 
-            this.lblEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEpoch.Location = new System.Drawing.Point(160, 0);
-            this.lblEpoch.Name = "lblEpoch";
-            this.lblEpoch.Size = new System.Drawing.Size(151, 33);
-            this.lblEpoch.TabIndex = 1;
-            this.lblEpoch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCost.Location = new System.Drawing.Point(160, 33);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(151, 34);
+            this.lblCost.TabIndex = 3;
+            this.lblCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // progressTrain
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 33);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Эпоха";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progressTrain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressTrain.Location = new System.Drawing.Point(3, 138);
+            this.progressTrain.Name = "progressTrain";
+            this.progressTrain.Size = new System.Drawing.Size(314, 34);
+            this.progressTrain.TabIndex = 1;
             // 
-            // leftSide
+            // gbTrainProcess
             // 
-            this.leftSide.Controls.Add(this.gbTrainProcess);
-            this.leftSide.Controls.Add(this.panelRecognize);
-            this.leftSide.Controls.Add(this.pbPixelImage);
-            this.leftSide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.leftSide.Location = new System.Drawing.Point(0, 24);
-            this.leftSide.Name = "leftSide";
-            this.leftSide.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.leftSide.Size = new System.Drawing.Size(320, 589);
-            this.leftSide.TabIndex = 0;
+            this.gbTrainProcess.Controls.Add(this.progressTrain);
+            this.gbTrainProcess.Controls.Add(this.tableLayoutPanel1);
+            this.gbTrainProcess.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbTrainProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbTrainProcess.Location = new System.Drawing.Point(0, 349);
+            this.gbTrainProcess.MinimumSize = new System.Drawing.Size(272, 175);
+            this.gbTrainProcess.Name = "gbTrainProcess";
+            this.gbTrainProcess.Padding = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.gbTrainProcess.Size = new System.Drawing.Size(320, 175);
+            this.gbTrainProcess.TabIndex = 2;
+            this.gbTrainProcess.TabStop = false;
+            this.gbTrainProcess.Text = "Процесс обучения";
+            // 
+            // btnRecognize
+            // 
+            this.btnRecognize.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRecognize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnRecognize.Location = new System.Drawing.Point(0, 0);
+            this.btnRecognize.Name = "btnRecognize";
+            this.btnRecognize.Size = new System.Drawing.Size(320, 36);
+            this.btnRecognize.TabIndex = 0;
+            this.btnRecognize.Text = "Распознать";
+            this.btnRecognize.UseVisualStyleBackColor = true;
+            this.btnRecognize.Click += new System.EventHandler(this.btnRecognize_Click);
+            // 
+            // gbTextResult
+            // 
+            this.gbTextResult.AutoSize = true;
+            this.gbTextResult.Controls.Add(this.lblResult);
+            this.gbTextResult.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbTextResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbTextResult.Location = new System.Drawing.Point(0, 36);
+            this.gbTextResult.MinimumSize = new System.Drawing.Size(136, 136);
+            this.gbTextResult.Name = "gbTextResult";
+            this.gbTextResult.Size = new System.Drawing.Size(136, 139);
+            this.gbTextResult.TabIndex = 1;
+            this.gbTextResult.TabStop = false;
+            this.gbTextResult.Text = "Текст";
+            // 
+            // lblResult
+            // 
+            this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblResult.Location = new System.Drawing.Point(3, 18);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(130, 118);
+            this.lblResult.TabIndex = 0;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gbGrapicsResult
+            // 
+            this.gbGrapicsResult.AutoSize = true;
+            this.gbGrapicsResult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbGrapicsResult.Controls.Add(this.pbResult);
+            this.gbGrapicsResult.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbGrapicsResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbGrapicsResult.Location = new System.Drawing.Point(184, 36);
+            this.gbGrapicsResult.MinimumSize = new System.Drawing.Size(136, 136);
+            this.gbGrapicsResult.Name = "gbGrapicsResult";
+            this.gbGrapicsResult.Padding = new System.Windows.Forms.Padding(1, 1, 1, 2);
+            this.gbGrapicsResult.Size = new System.Drawing.Size(136, 139);
+            this.gbGrapicsResult.TabIndex = 2;
+            this.gbGrapicsResult.TabStop = false;
+            this.gbGrapicsResult.Text = "Графика";
+            // 
+            // pbResult
+            // 
+            this.pbResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbResult.Location = new System.Drawing.Point(1, 16);
+            this.pbResult.Margin = new System.Windows.Forms.Padding(0);
+            this.pbResult.Name = "pbResult";
+            this.pbResult.Size = new System.Drawing.Size(134, 121);
+            this.pbResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbResult.TabIndex = 0;
+            this.pbResult.TabStop = false;
+            // 
+            // panelRecognize
+            // 
+            this.panelRecognize.Controls.Add(this.gbGrapicsResult);
+            this.panelRecognize.Controls.Add(this.gbTextResult);
+            this.panelRecognize.Controls.Add(this.btnRecognize);
+            this.panelRecognize.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelRecognize.Location = new System.Drawing.Point(0, 174);
+            this.panelRecognize.MinimumSize = new System.Drawing.Size(274, 175);
+            this.panelRecognize.Name = "panelRecognize";
+            this.panelRecognize.Size = new System.Drawing.Size(320, 175);
+            this.panelRecognize.TabIndex = 1;
             // 
             // RecognizerView
             // 
@@ -718,15 +734,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numLearningRate)).EndInit();
             this.gbTrainSet.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.gbTextResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProbability)).EndInit();
-            this.panelRecognize.ResumeLayout(false);
-            this.panelRecognize.PerformLayout();
+            this.leftSide.ResumeLayout(false);
+            this.drawerContainer.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.gbTrainProcess.ResumeLayout(false);
+            this.gbTextResult.ResumeLayout(false);
             this.gbGrapicsResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
-            this.gbTrainProcess.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.leftSide.ResumeLayout(false);
+            this.panelRecognize.ResumeLayout(false);
+            this.panelRecognize.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,13 +780,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gbTextResult;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.DataGridView dgvProbability;
-        private System.Windows.Forms.Panel panelRecognize;
-        private System.Windows.Forms.GroupBox gbGrapicsResult;
-        private System.Windows.Forms.PictureBox pbResult;
-        private System.Windows.Forms.Button btnRecognize;
+        private System.Windows.Forms.Button btnEditLayer;
+        private System.Windows.Forms.Panel leftSide;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Panel drawerContainer;
         private System.Windows.Forms.GroupBox gbTrainProcess;
         private System.Windows.Forms.ProgressBar progressTrain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -777,9 +793,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblEpoch;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnEditLayer;
-        private System.Windows.Forms.Panel leftSide;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Panel panelRecognize;
+        private System.Windows.Forms.GroupBox gbGrapicsResult;
+        private System.Windows.Forms.PictureBox pbResult;
+        private System.Windows.Forms.GroupBox gbTextResult;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button btnRecognize;
     }
 }

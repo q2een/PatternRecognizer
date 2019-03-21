@@ -12,14 +12,29 @@ namespace PatternRecognizer
     {           
         #region Свойства для графических элементов
 
+        /// <summary>
+        /// Возвращает или задает коэффициент масштабирования области рисования.
+        /// </summary>
         protected virtual int DrawerMultiplier { get; set; } = 50;
 
+        /// <summary>
+        /// Возвращает или задает флаг, указывающий на существование графического представления образа.
+        /// </summary>
         protected virtual bool IsGraphicsResultExists { get; set; } = true;
 
+        /// <summary>
+        /// Возвращает или задает фильтр для открытия файла обучающей выборки.
+        /// </summary>
         protected virtual string OpenTrainSetFilter { get; set; } = "PNG image|*.png";
-
+                                 
+        /// <summary>
+        /// Возвращает или задает фильтр для сохранения файла нейронной сети.
+        /// </summary>
         protected virtual string SaveNetworkFilter { get; set; } = "JSON File|*.json";
 
+        /// <summary>
+        /// Возвращает или задает фильтр для загрузки файла нейронной сети.
+        /// </summary>
         protected virtual string LoadNetworkFilter { get; set; } = "JSON File|*.json";
 
         #endregion
@@ -300,5 +315,9 @@ namespace PatternRecognizer
 
         #endregion
 
+        private void panelRecognize_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

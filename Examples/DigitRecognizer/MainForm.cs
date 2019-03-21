@@ -2,12 +2,13 @@
 
 namespace DigitRecognizer
 {
-    public partial class MainForm : RecognizerView
+    class MainForm: RecognizerView
     {
         public MainForm()
         {
-            DrawerMultiplier = 75;
+            DrawerMultiplier = 80;
             IsGraphicsResultExists = false;
+            Text = "Распознавание цифр";
         }
     }
 }
